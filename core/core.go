@@ -36,6 +36,8 @@ func  CheckPort(ip net.IP, port int) {
 }
 
 func LoginFtp(tcpAddr net.TCPAddr) (error) {
+
+
 	ftp := new(ftp.FTP)
 	//ftp.Debug=true
 	ftp.Connect(tcpAddr.IP.String(), 21)
@@ -48,6 +50,6 @@ func LoginFtp(tcpAddr net.TCPAddr) (error) {
 		fmt.Println("扫描成功："+tcpAddr.IP.String()+"密码：123456")
 		return nil
 	}
-	ftp.Close()
+	ftp.Quit()
 	return nil
 }
